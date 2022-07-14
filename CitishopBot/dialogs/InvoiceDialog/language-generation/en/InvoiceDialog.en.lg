@@ -1,0 +1,21 @@
+[import](common.lg)
+
+# SendActivity_DuBkGs_text()
+- Bạn muốn trợ giúp gì về đơn hàng?
+# SendActivity_DuBkGs()
+[Activity
+    Text = ${SendActivity_DuBkGs_text()}
+]
+
+# SendActivity_F1oqKd()
+-
+# TextInput_Prompt_4zgqjx()
+-
+# TextInput_UnrecognizedPrompt_4zgqjx()
+-
+# TextInput_InvalidPrompt_4zgqjx()
+-
+# SendActivity_9dTZWJ()
+-
+# SendActivity_3bNO5J()
+-

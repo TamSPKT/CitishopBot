@@ -1,0 +1,96 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "dZipG3",
+    "name": "InvoiceDialog",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "8qYjKi"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "F1oqKd"
+          },
+          "activity": "${SendActivity_F1oqKd()}"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "4zgqjx"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": true,
+          "allowInterruptions": true,
+          "prompt": "${TextInput_Prompt_4zgqjx()}",
+          "property": "user.invoiceId",
+          "outputFormat": "=trim(this.value)",
+          "unrecognizedPrompt": "${TextInput_UnrecognizedPrompt_4zgqjx()}",
+          "validations": [
+            "length(this.value) == 36"
+          ],
+          "invalidPrompt": "${TextInput_InvalidPrompt_4zgqjx()}",
+          "defaultValue": "NaN"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "jNpEp2"
+          },
+          "method": "GET",
+          "url": "https://citishopnet.azurewebsites.net/api/Invoice/${user.invoiceId}",
+          "resultProperty": "dialog.api_response"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "7cZeof"
+          },
+          "condition": "=dialog.api_response.statusCode == 200",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "U0VfuV"
+              },
+              "property": "dialog.deliveryStatus",
+              "value": "=dialog.api_response.content.deliveryStatus"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "9dTZWJ"
+              },
+              "activity": "${SendActivity_9dTZWJ()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "3bNO5J"
+              },
+              "activity": "${SendActivity_3bNO5J()}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "InvoiceDialog.lg",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
+  "id": "InvoiceDialog"
+}

@@ -1,0 +1,29 @@
+[import](common.lg)
+
+# SendActivity_bFpOKg_text()
+- Bạn muốn trợ giúp gì về sản phẩm?
+# SendActivity_bFpOKg()
+[Activity
+    Text = ${SendActivity_bFpOKg_text()}
+]
+
+# SendActivity_3QlKr2()
+-
+# TextInput_Prompt_c4mp58()
+-
+# TextInput_UnrecognizedPrompt_c4mp58()
+-
+# TextInput_InvalidPrompt_c4mp58()
+-
+# SendActivity_Kd3yi3()
+-
+# SendActivity_kAYhuK()
+-
+# TextInput_Prompt_MfrtmC()
+-
+# TextInput_UnrecognizedPrompt_MfrtmC()
+-
+# TextInput_InvalidPrompt_MfrtmC()
+-
+# SendActivity_plGMk7()
+-

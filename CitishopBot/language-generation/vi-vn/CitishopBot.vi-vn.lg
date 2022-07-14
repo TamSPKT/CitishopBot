@@ -1,0 +1,31 @@
+[import](common.lg)
+
+# SendActivity_Greeting()
+[Activity
+    Text = ${SendActivity_Greeting_text()}
+]
+
+# SendActivity_Greeting_text()
+- Xin chào, tôi có thể giúp gì cho bạn?
+- Chào bạn, tôi có thể giúp gì cho bạn?
+# SendActivity_DidNotUnderstand()
+[Activity
+    Text = ${SendActivity_DidNotUnderstand_text()}
+]
+
+# SendActivity_DidNotUnderstand_text()
+- Xin lỗi, tôi không hiểu ý bạn. Bạn có thể nhắn "giúp" để được trợ giúp thêm. 
+# SendActivity_FiZFER()
+[Activity
+    Text = ${SendActivity_FiZFER_text()}
+]
+
+# SendActivity_FiZFER_text()
+- ```Có lỗi xảy ra. 
+${turn.dialogEvent.value.className}: ${turn.dialogEvent.value.message}```
+# SendActivity_W11Heu_text()
+- Lựa chọn không hợp lệ.
+# SendActivity_W11Heu()
+[Activity
+    Text = ${SendActivity_W11Heu_text()}
+]

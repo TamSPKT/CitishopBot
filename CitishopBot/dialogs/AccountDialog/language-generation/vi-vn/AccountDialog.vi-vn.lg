@@ -1,0 +1,100 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_Z7sVvT()
+[Activity
+    Text = ${ChoiceInput_Prompt_Z7sVvT_text()}
+]
+
+# ChoiceInput_Prompt_Z7sVvT_text()
+- Bạn muốn trợ giúp gì về tài khoản?
+# SendActivity_lDYVgP_text()
+- Hiện tại, tôi chỉ có thể trợ giúp về đăng nhập và đăng ký. 
+# SendActivity_lDYVgP()
+[Activity
+    Text = ${SendActivity_lDYVgP_text()}
+]
+
+# SendActivity_xffnhJ_text()
+- Hiện tại, tôi chỉ có thể trợ giúp về đăng nhập và đăng ký. 
+# SendActivity_xffnhJ()
+[Activity
+    Text = ${SendActivity_xffnhJ_text()}
+]
+
+# TextInput_Prompt_HDtR3u()
+[Activity
+    Text = ${TextInput_Prompt_HDtR3u_text()}
+]
+
+# TextInput_Prompt_HDtR3u_text()
+- Email của bạn là gì?
+# TextInput_UnrecognizedPrompt_HDtR3u()
+[Activity
+    Text = ${TextInput_UnrecognizedPrompt_HDtR3u_text()}
+]
+
+# TextInput_UnrecognizedPrompt_HDtR3u_text()
+- '${this.value}' không phải là email hợp lệ.
+# SendActivity_ityrQn_text()
+- Lựa chọn không hợp lệ.
+# SendActivity_ityrQn()
+[Activity
+    Text = ${SendActivity_ityrQn_text()}
+]
+
+# SendActivity_wUaCWK()
+[Activity
+    Text = ${SendActivity_wUaCWK_text()}
+]
+
+# SendActivity_wUaCWK_text()
+- Email ${user.email} đã được xác nhận và có thể đăng nhập bình thường.
+# SendActivity_dKIwy4_text()
+- Email ${user.email} chưa được xác nhận, vui lòng xác nhận email.
+# SendActivity_dKIwy4()
+[Activity
+    Text = ${SendActivity_dKIwy4_text()}
+]
+
+# SendActivity_nG7q26_text()
+- Email ${user.email} chưa đăng ký nên không thể đăng nhập được.
+# SendActivity_nG7q26()
+[Activity
+    Text = ${SendActivity_nG7q26_text()}
+]
+
+# SendActivity_NHYi4b_text()
+- Email ${user.email} chưa đăng ký. 
+# SendActivity_NHYi4b()
+[Activity
+    Text = ${SendActivity_NHYi4b_text()}
+]
+
+# SendActivity_w2qxLv_text()
+- Email ${user.email} đẵ đăng ký, không thể đăng nhập được.
+# SendActivity_w2qxLv()
+[Activity
+    Text = ${SendActivity_w2qxLv_text()}
+]
+
+# SendActivity_FiNbdH_text()
+- Email ${user.email} đã được đăng ký và đã xác nhận, có thể đăng nhập bình thường.
+# SendActivity_FiNbdH()
+[Activity
+    Text = ${SendActivity_FiNbdH_text()}
+]
+
+# SendActivity_0QPY6f_text()
+- Email ${user.email} chưa được xác nhận, vui lòng xác nhận email.
+# SendActivity_0QPY6f()
+[Activity
+    Text = ${SendActivity_0QPY6f_text()}
+]
+
+# TextInput_InvalidPrompt_HDtR3u()
+[Activity
+    Text = ${TextInput_InvalidPrompt_HDtR3u_text()}
+]
+
+# TextInput_InvalidPrompt_HDtR3u_text()
+- Email '${this.value}' không hợp lệ.

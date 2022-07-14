@@ -1,0 +1,33 @@
+[import](common.lg)
+
+# SendActivity_AeBdky_text()
+- Bạn muốn trợ giúp gì về tài khoản?
+# SendActivity_AeBdky()
+[Activity
+    Text = ${SendActivity_AeBdky_text()}
+]
+
+# SendActivity_xffnhJ()
+-
+# TextInput_Prompt_HDtR3u()
+-
+# TextInput_UnrecognizedPrompt_HDtR3u()
+-
+# TextInput_InvalidPrompt_HDtR3u()
+-
+# ChoiceInput_Prompt_Z7sVvT()
+-
+# SendActivity_wUaCWK()
+-
+# SendActivity_dKIwy4()
+-
+# SendActivity_nG7q26()
+-
+# SendActivity_FiNbdH()
+-
+# SendActivity_0QPY6f()
+-
+# SendActivity_NHYi4b()
+-
+# SendActivity_ityrQn()
+-

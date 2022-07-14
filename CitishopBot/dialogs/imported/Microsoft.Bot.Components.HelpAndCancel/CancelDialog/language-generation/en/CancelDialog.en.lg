@@ -1,0 +1,31 @@
+[import](common.lg)
+
+# ConfirmInput_Prompt_AreYouSure()
+[Activity
+    Text = ${ConfirmInput_Prompt_AreYouSure_text()}
+]
+
+# ConfirmInput_Prompt_AreYouSure_text()
+- Bạn có chắc là muốn thoát hội thoại này?
+- Bạn có muốn thoát hội thoại này không?
+# SendActivity_CancelConfirmation()
+[Activity
+    Text = ${SendActivity_CancelConfirmation_text()}
+]
+
+# SendActivity_CancelConfirmation_text()
+- OK.
+- OK. Tôi sẽ hủy bỏ hội thoại này.
+- OK, tôi sẽ dừng hội thoại này.
+- Tôi sẽ dừng hội thoại này ở đây.
+- Tôi sẽ dừng hội thoại này.
+# SendActivity_ContinueConfirmation()
+[Activity
+    Text = ${SendActivity_ContinueConfirmation_text()}
+]
+
+# SendActivity_ContinueConfirmation_text()
+- OK, chúng ta hãy tiếp tục.
+- Tôi sẽ tiếp tục hội thoại này.
+
+> Imported: 184d315b4c724ad6466cf3feb5320df4

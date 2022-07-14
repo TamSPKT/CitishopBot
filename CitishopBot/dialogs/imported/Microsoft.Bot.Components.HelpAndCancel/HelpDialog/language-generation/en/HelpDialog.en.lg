@@ -1,0 +1,35 @@
+[import](common.lg)
+
+# SendActivity_HelpOverview()
+[Activity
+    Text = ${SendActivity_HelpOverview_text()}
+]
+
+# SendActivity_HelpOverview_text()
+- Tôi chỉ thể giúp với các câu hỏi đơn giản. Bây giờ tôi chỉ là một trợ lý ảo cơ bản.
+- Tôi là một trợ lý ảo cơ bản, tôi chỉ có thể giúp bạn với những yêu cầu đơn giản.
+- Hiện tại, tôi chỉ có thể giúp bạn với những câu hỏi đơn giản.
+
+> Imported: 95949fcc5eb2077f9cffd10817a11340
+# ChoiceInput_Prompt_7VU4Wg()
+[Activity
+    Text = ${ChoiceInput_Prompt_7VU4Wg_text()}
+]
+
+# ChoiceInput_Prompt_7VU4Wg_text()
+- Bạn muốn giúp về vấn đề gì?
+- Bạn muốn trợ giúp về gì?
+# SendActivity_4bGb1m_text()
+- Bạn chọn: ${dialog.helpChoice}
+# SendActivity_4bGb1m()
+[Activity
+    Text = ${SendActivity_4bGb1m_text()}
+]
+
+# SendActivity_acpPXF()
+[Activity
+    Text = ${SendActivity_acpPXF_text()}
+]
+
+# SendActivity_acpPXF_text()
+- Bạn có thể nhắn "thoát" để thoát khỏi hội thoại.

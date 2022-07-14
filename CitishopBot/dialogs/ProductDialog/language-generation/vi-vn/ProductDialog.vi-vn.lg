@@ -1,0 +1,56 @@
+[import](common.lg)
+
+# SendActivity_3QlKr2_text()
+- Hiện tại, tôi chỉ có thể trợ giúp về tìm kiếm tên sản phẩm.
+# SendActivity_3QlKr2()
+[Activity
+    Text = ${SendActivity_3QlKr2_text()}
+]
+
+# SendActivity_kAYhuK()
+[Activity
+    Text = ${SendActivity_kAYhuK_text()}
+]
+
+# SendActivity_kAYhuK_text()
+- Tôi không tìm thấy sản phẩm nào.
+# SendActivity_Kd3yi3()
+[Activity
+    Attachments = ${SendActivity_Kd3yi3_attachment_rWBWHn()}
+]
+
+# SendActivity_Kd3yi3_attachment_rWBWHn()
+[ThumbnailCard
+  title = ${dialog.name}
+  subtitle = Giá: ${coalesce(dialog.discountPrice, dialog.price)}
+  text = Sản phảm tồn kho: ${dialog.quantity}
+  image = https://citishop.azurewebsites.net/android-chrome-256x256.png
+]
+# TextInput_Prompt_MfrtmC_text()
+- Bạn muốn tìm tên sản phẩm theo từ khoá tìm kiếm gì?
+# TextInput_Prompt_MfrtmC()
+[Activity
+    Text = ${TextInput_Prompt_MfrtmC_text()}
+]
+
+# TextInput_UnrecognizedPrompt_MfrtmC_text()
+- Từ khoá tìm kiếm không được để trống.
+# TextInput_UnrecognizedPrompt_MfrtmC()
+[Activity
+    Text = ${TextInput_UnrecognizedPrompt_MfrtmC_text()}
+]
+
+# TextInput_InvalidPrompt_MfrtmC_text()
+- Không được để trống.
+# TextInput_InvalidPrompt_MfrtmC()
+[Activity
+    Text = ${TextInput_InvalidPrompt_MfrtmC_text()}
+]
+
+# SendActivity_plGMk7()
+[Activity
+    Text = ${SendActivity_plGMk7_text()}
+]
+
+# SendActivity_plGMk7_text()
+- Đây là kết quả đầu tiên tôi tìm được.

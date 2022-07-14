@@ -1,0 +1,44 @@
+[import](common.lg)
+
+# SendActivity_F1oqKd_text()
+- Hiện tại, tôi chỉ có thể trợ giúp về trạng thái giao đơn hàng.
+# SendActivity_F1oqKd()
+[Activity
+    Text = ${SendActivity_F1oqKd_text()}
+]
+
+# TextInput_Prompt_4zgqjx()
+[Activity
+    Text = ${TextInput_Prompt_4zgqjx_text()}
+]
+
+# TextInput_Prompt_4zgqjx_text()
+- Mã đơn hàng của bạn là gì?
+# TextInput_UnrecognizedPrompt_4zgqjx()
+[Activity
+    Text = ${TextInput_UnrecognizedPrompt_4zgqjx_text()}
+]
+
+# TextInput_UnrecognizedPrompt_4zgqjx_text()
+- '${this.value}' không phải là mã đơn hàng hợp lệ.
+# TextInput_InvalidPrompt_4zgqjx()
+[Activity
+    Text = ${TextInput_InvalidPrompt_4zgqjx_text()}
+]
+
+# TextInput_InvalidPrompt_4zgqjx_text()
+- Mã đơn hàng '${this.value}' không hợp lệ.
+# SendActivity_3bNO5J_text()
+- Đơn hàng có mã ${user.invoiceId} không tồn tại.
+# SendActivity_3bNO5J()
+[Activity
+    Text = ${SendActivity_3bNO5J_text()}
+]
+
+# SendActivity_9dTZWJ()
+[Activity
+    Text = ${SendActivity_9dTZWJ_text()}
+]
+
+# SendActivity_9dTZWJ_text()
+- Trạng thái giao đơn hàng là: ${dialog.deliveryStatus}

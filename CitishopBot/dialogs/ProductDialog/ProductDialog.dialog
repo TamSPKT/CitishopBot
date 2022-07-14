@@ -1,0 +1,144 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "F5yldW",
+    "name": "ProductDialog",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "SErcqW"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "3QlKr2"
+          },
+          "activity": "${SendActivity_3QlKr2()}"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "MfrtmC"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": true,
+          "allowInterruptions": true,
+          "prompt": "${TextInput_Prompt_MfrtmC()}",
+          "property": "user.productSearch",
+          "outputFormat": "=trim(this.value)",
+          "unrecognizedPrompt": "${TextInput_UnrecognizedPrompt_MfrtmC()}",
+          "validations": [
+            "length(this.value) > 0"
+          ],
+          "invalidPrompt": "${TextInput_InvalidPrompt_MfrtmC()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "uuMmK3"
+          },
+          "resultProperty": "dialog.api_response",
+          "url": "https://citishopnet.azurewebsites.net/api/Product?name=${user.productSearch}&limit=1",
+          "method": "GET"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "QuFYR2"
+          },
+          "condition": "=dialog.api_response.statusCode == 200",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.ThrowException",
+              "$designer": {
+                "id": "GNekbp"
+              },
+              "errorValue": "=dialog.api_response.statusCode"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "MsjKow"
+              },
+              "property": "dialog.totalItems",
+              "value": "=dialog.api_response.content.totalItems"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "94rpFi"
+              },
+              "condition": "=dialog.totalItems > 0",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "ZRdJ1M"
+                  },
+                  "assignments": [
+                    {
+                      "property": "dialog.name",
+                      "value": "=dialog.api_response.content.items[0].name"
+                    },
+                    {
+                      "property": "dialog.quantity",
+                      "value": "=dialog.api_response.content.items[0].quantity"
+                    },
+                    {
+                      "property": "dialog.price",
+                      "value": "=dialog.api_response.content.items[0].price"
+                    },
+                    {
+                      "property": "dialog.discountPrice",
+                      "value": "=dialog.api_response.content.items[0].discountPrice"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "plGMk7"
+                  },
+                  "activity": "${SendActivity_plGMk7()}"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "Kd3yi3"
+                  },
+                  "activity": "${SendActivity_Kd3yi3()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "kAYhuK"
+                  },
+                  "activity": "${SendActivity_kAYhuK()}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "ProductDialog.lg",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
+  "id": "ProductDialog"
+}

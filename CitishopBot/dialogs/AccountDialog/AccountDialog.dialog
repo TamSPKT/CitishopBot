@@ -1,0 +1,213 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "cPSsjl",
+    "name": "AccountDialog",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "JDBY3D"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "xffnhJ"
+          },
+          "activity": "${SendActivity_xffnhJ()}"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "HDtR3u"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": true,
+          "allowInterruptions": true,
+          "unrecognizedPrompt": "${TextInput_UnrecognizedPrompt_HDtR3u()}",
+          "prompt": "${TextInput_Prompt_HDtR3u()}",
+          "property": "user.email",
+          "outputFormat": "=trim(this.value)",
+          "validations": [
+            "=isMatch(this.value, '^(.+)@(.+)$')"
+          ],
+          "invalidPrompt": "${TextInput_InvalidPrompt_HDtR3u()}"
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "Z7sVvT"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": true,
+          "allowInterruptions": true,
+          "unrecognizedPrompt": "",
+          "prompt": "${ChoiceInput_Prompt_Z7sVvT()}",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "choices": [
+            "Đăng nhập",
+            "Đăng ký"
+          ],
+          "property": "user.accountChoice",
+          "recognizerOptions": {
+            "recognizeOrdinals": true,
+            "recognizeNumbers": true
+          }
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "R1hR0f"
+          },
+          "condition": "user.accountChoice",
+          "cases": [
+            {
+              "value": "Đăng nhập",
+              "actions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "vhdWlb"
+                  },
+                  "method": "GET",
+                  "url": "https://citishopnet.azurewebsites.net/api/User/${user.email}",
+                  "resultProperty": "dialog.api_response"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "5FxkPf"
+                  },
+                  "condition": "=dialog.api_response.statusCode == 200",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "BhfULz"
+                      },
+                      "condition": "=dialog.api_response.content.emailConfirmed == true",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "wUaCWK"
+                          },
+                          "activity": "${SendActivity_wUaCWK()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "dKIwy4"
+                          },
+                          "activity": "${SendActivity_dKIwy4()}"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "nG7q26"
+                      },
+                      "activity": "${SendActivity_nG7q26()}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": "Đăng ký",
+              "actions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "zGb4gQ"
+                  },
+                  "method": "GET",
+                  "url": "https://citishopnet.azurewebsites.net/api/User/${user.email}",
+                  "resultProperty": "dialog.api_response"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "P0rTCA"
+                  },
+                  "condition": "=dialog.api_response.statusCode == 200",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "drmdT3"
+                      },
+                      "condition": "=dialog.api_response.content.emailConfirmed == true",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "FiNbdH"
+                          },
+                          "activity": "${SendActivity_FiNbdH()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "0QPY6f"
+                          },
+                          "activity": "${SendActivity_0QPY6f()}"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "NHYi4b"
+                      },
+                      "activity": "${SendActivity_NHYi4b()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "default": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "ityrQn"
+              },
+              "activity": "${SendActivity_ityrQn()}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "AccountDialog.lg",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
+  "id": "AccountDialog"
+}
